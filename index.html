@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebrahim Arefi – Portfolio</title>
+  <meta name="description" content="Portfolio of Ebrahim Arefi – Computer Science student at UNB with expertise in digital marketing, social media, video production, and web development." />
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', () => {
+      window.scrollTo(0, 0);
+    });
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #c0392b;
+      --red-mid: #e74c3c;
+      --red-light: #f1948a;
+      --rose: #ff6b6b;
+      --bg: #0b0c10;
+      --surface: #13141a;
+      --surface2: #1c1e27;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f1f5;
+      --muted: #8b90a0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(11,12,16,0.75);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--red-mid), var(--rose));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      background: linear-gradient(135deg, var(--red), var(--red-mid));
+      color: #fff; font-weight: 600; font-size: 0.85rem; border-radius: 100px;
+      text-decoration: none; transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,57,43,0.5); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      background: transparent; color: var(--text); font-weight: 500; font-size: 0.85rem;
+      border-radius: 100px; text-decoration: none; border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 7rem 2.5rem 5rem;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(192,57,43,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(231,76,60,0.12) 0%, transparent 60%);
+    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; animation: float 8s ease-in-out infinite; }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #c0392b, transparent); top: -100px; right: -100px; animation-delay: 0s; }
+    .orb-2 { width: 300px; height: 300px; background: radial-gradient(circle, #e74c3c, transparent); bottom: 0; left: -80px; animation-delay: -4s; }
+    @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+    .hero-inner { position: relative; max-width: 900px; margin: 0 auto; width: 100%; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--red-light); margin-bottom: 1.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.3); border-radius: 100px;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--red-mid); border-radius: 50%; animation: pulse 2s infinite; }
+    .hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 1.25rem; }
+    .hero h1 span { background: linear-gradient(135deg, #e74c3c 0%, #ff8a80 60%, #ffcdd2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 1.125rem; color: var(--muted); font-weight: 400; margin-bottom: 1.5rem; line-height: 1.6; max-width: 620px; }
+    .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 580px; margin-bottom: 2.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 2.5rem; }
+    .tag { font-size: 0.8rem; font-weight: 500; padding: 0.4rem 0.9rem; border-radius: 100px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: var(--text); transition: all 0.2s; }
+    .tag:hover { background: rgba(231,76,60,0.15); border-color: rgba(231,76,60,0.4); }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── STAT BAR ── */
+    .stat-bar {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 1.25rem; overflow: hidden;
+      margin-top: -1px;
+    }
+    .stat-item {
+      background: var(--surface); padding: 1.75rem 2rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+    .stat-num { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; background: linear-gradient(135deg, var(--red-mid), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
+    /* ── SECTION ── */
+    .section { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem; }
+    .section-header { margin-bottom: 3rem; }
+    .section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--red-mid); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border) 40%, var(--border) 60%, transparent); margin: 0 2.5rem; }
+
+    /* ── INFO GRID ── */
+    .info-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1.25rem; }
+    .contact-card { background: linear-gradient(160deg, rgba(192,57,43,0.15), var(--surface)); border: 1px solid rgba(192,57,43,0.25); border-radius: 1.5rem; padding: 2rem; }
+    .contact-card h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--red-mid); margin-bottom: 1.25rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text); }
+    .contact-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(231,76,60,0.12); border: 1px solid rgba(231,76,60,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
+    .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem; padding: 2rem; }
+    .about-card h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.25rem; }
+    .about-card p { color: #c8cad4; line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem; }
+    .about-card p:last-child { margin-bottom: 0; }
+
+    /* ── EDUCATION ── */
+    .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.25rem; }
+    .edu-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 1rem; padding: 1.25rem 1.5rem; font-size: 0.9rem; color: #c8cad4; line-height: 1.6; display: flex; align-items: flex-start; gap: 0.75rem; transition: all 0.3s; }
+    .edu-item:hover { border-color: rgba(231,76,60,0.3); background: rgba(192,57,43,0.06); }
+    .edu-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-mid); flex-shrink: 0; margin-top: 0.4rem; }
+    .edu-note { background: var(--surface2); border: 1px dashed rgba(231,76,60,0.3); border-radius: 1rem; padding: 1.25rem 1.5rem; font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem; padding: 1.75rem; transition: all 0.3s; }
+    .skill-card:hover { border-color: rgba(231,76,60,0.3); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.4); }
+    .skill-cat-icon { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, rgba(192,57,43,0.25), rgba(231,76,60,0.1)); border: 1px solid rgba(231,76,60,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1rem; }
+    .skill-cat { font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; color: var(--text); }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
+    .skill-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .skill-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--red-mid); flex-shrink: 0; margin-top: 0.45rem; }
+
+    /* ── WORK SAMPLES ── */
+    .samples-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(260px, 0.9fr);
+      gap: 1rem;
+      margin: -0.75rem 0 2rem;
+    }
+    .samples-intro {
+      background:
+        radial-gradient(circle at top right, rgba(231,76,60,0.14), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.75rem;
+    }
+    .samples-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--red-light);
+      margin-bottom: 0.8rem;
+    }
+    .samples-kicker::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red-mid);
+      box-shadow: 0 0 0 6px rgba(231,76,60,0.12);
+    }
+    .samples-intro p {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: #c5cad5;
+    }
+    .samples-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.1rem;
+    }
+    .sample-highlight {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1rem;
+      padding: 0.9rem 1rem;
+    }
+    .sample-highlight strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .sample-highlight span {
+      display: block;
+      font-size: 0.76rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .samples-note {
+      background: linear-gradient(160deg, rgba(192,57,43,0.16), rgba(19,20,26,0.98));
+      border: 1px solid rgba(231,76,60,0.22);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .samples-note-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--red-light);
+    }
+    .samples-note p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: #f1d8d4;
+    }
+    .samples-note strong {
+      display: inline-block;
+      color: #fff;
+      font-weight: 700;
+    }
+    .samples-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: stretch; }
+    .sample-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)), var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.35s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .sample-card:hover { border-color: rgba(231,76,60,0.35); transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+    .sample-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(8,10,16,0.1) 100%);
+      pointer-events: none;
+    }
+    .sample-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 1rem;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.76), rgba(235,238,244,0.96)),
+        linear-gradient(135deg, rgba(192,57,43,0.18), rgba(18,21,31,0.2));
+    }
+    .sample-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+      border-radius: 1rem;
+      box-shadow: 0 18px 36px rgba(15,18,28,0.18);
+      background: #fff;
+    }
+    .sample-card:hover .sample-img { transform: scale(1.04); }
+    .sample-type {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      z-index: 1;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #fff;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(9,11,17,0.7);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(12px);
+    }
+    .sample-info { position: relative; z-index: 1; padding: 1.25rem 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
+    .sample-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .sample-title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .sample-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .sample-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .sample-tag { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 100px; background: rgba(231,76,60,0.12); border: 1px solid rgba(231,76,60,0.25); color: var(--red-light); }
+    .sample-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.15rem;
+    }
+    .sample-impact {
+      font-size: 0.74rem;
+      color: #d4d7df;
+      line-height: 1.5;
+    }
+    .sample-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .sample-link::after {
+      content: '↗';
+      font-size: 0.9rem;
+      color: var(--red-light);
+    }
+    .sample-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    .sample-links .sample-link {
+      text-decoration: none;
+    }
+    .sample-card.featured {
+      grid-column: span 2;
+      background:
+        radial-gradient(circle at top right, rgba(231,76,60,0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
+        var(--surface);
+    }
+    .sample-card.featured .sample-media { aspect-ratio: 16 / 10; }
+    .sample-card.featured .sample-info { padding: 1.5rem 1.7rem 1.6rem; }
+    .sample-card.featured .sample-title { font-size: 1.18rem; }
+    .sample-card.featured .sample-desc { font-size: 0.86rem; }
+
+    /* ── VIDEOS ── */
+    .videos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .video-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem; overflow: hidden; transition: all 0.35s; }
+    .video-card:hover { border-color: rgba(231,76,60,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .video-wrap { position: relative; aspect-ratio: 9/16; background: #000; overflow: hidden; }
+    .video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-wrap:has(video[src*="lv_1"]) { aspect-ratio: 16/9; }
+    .video-info { padding: 1.25rem 1.5rem; }
+    .video-platform { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.6rem; }
+    .platform-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red-mid); flex-shrink: 0; }
+    .video-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.35; }
+    .video-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.875rem; }
+    .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.35);
+      cursor: pointer; z-index: 2;
+      transition: opacity 0.25s ease, background 0.25s ease;
+    }
+    .play-overlay:hover { background: rgba(0,0,0,0.5); }
+    .play-overlay.hidden { opacity: 0; pointer-events: none; }
+    .play-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(231,76,60,0.85);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: #fff;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .play-overlay:hover .play-btn { transform: scale(1.1); background: rgba(231,76,60,1); }
+    .video-wrap { cursor: pointer; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .exp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem; padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden; }
+    .exp-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--red), var(--rose)); opacity: 0; transition: opacity 0.3s; }
+    .exp-card:hover::before { opacity: 1; }
+    .exp-card:hover { border-color: rgba(231,76,60,0.25); transform: translateX(4px); }
+    .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .exp-title { font-size: 1.1rem; font-weight: 700; }
+    .exp-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .exp-badge { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 100px; background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.2); color: var(--red-light); white-space: nowrap; }
+    .exp-text { font-size: 0.9rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; }
+    .exp-bullets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.625rem; }
+    .exp-bullet { background: var(--surface2); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.7rem 1rem; font-size: 0.8rem; color: #c8cad4; display: flex; align-items: center; gap: 0.5rem; }
+    .exp-bullet::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--red-mid); flex-shrink: 0; }
+
+    /* ── APPROACH ── */
+    .approach-section { background: linear-gradient(180deg, var(--surface) 0%, #0d0f16 100%); border-top: 1px solid var(--border); padding: 5rem 2.5rem; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .approach-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 1.25rem; padding: 1.5rem; font-size: 0.875rem; color: #aab0c0; line-height: 1.65; transition: all 0.3s; display: flex; gap: 0.875rem; align-items: flex-start; }
+    .approach-item:hover { background: rgba(192,57,43,0.08); border-color: rgba(231,76,60,0.25); color: var(--text); }
+    .approach-num { font-size: 0.7rem; font-weight: 800; color: var(--red-mid); background: rgba(192,57,43,0.15); border: 1px solid rgba(192,57,43,0.25); width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 2.5rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); }
+    footer a { color: var(--red-mid); text-decoration: none; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      --reveal-delay: 0ms;
+      --parallax-y: 0px;
+      opacity: 0;
+      filter: blur(6px);
+      transform: translate3d(0, calc(20px + var(--parallax-y)), 0) scale(0.992);
+      transition:
+        opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay),
+        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay),
+        filter 0.34s ease var(--reveal-delay),
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+      will-change: transform, opacity, filter;
+    }
+    .reveal.visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0, var(--parallax-y), 0) scale(1);
+    }
+    .reveal[data-reveal="left"] {
+      transform: translate3d(-24px, calc(10px + var(--parallax-y)), 0) scale(0.992);
+    }
+    .reveal[data-reveal="right"] {
+      transform: translate3d(24px, calc(10px + var(--parallax-y)), 0) scale(0.992);
+    }
+    .reveal[data-reveal="zoom"] {
+      transform: translate3d(0, calc(10px + var(--parallax-y)), 0) scale(0.97);
+    }
+    .reveal[data-reveal="lift"] {
+      transform: translate3d(0, calc(28px + var(--parallax-y)), 0) scale(0.988);
+    }
+    .reveal.visible[data-reveal="left"],
+    .reveal.visible[data-reveal="right"],
+    .reveal.visible[data-reveal="zoom"],
+    .reveal.visible[data-reveal="lift"] {
+      transform: translate3d(0, var(--parallax-y), 0) scale(1);
+    }
+    .reveal-group {
+      perspective: 1200px;
+    }
+    .reveal-group .reveal.visible:hover {
+      transform: translate3d(0, calc(var(--parallax-y) - 4px), 0) scale(1.01);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal.visible,
+      .reveal[data-reveal="left"],
+      .reveal[data-reveal="right"],
+      .reveal[data-reveal="zoom"],
+      .reveal[data-reveal="lift"] {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+      }
+      .orb {
+        animation: none;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .stat-bar { grid-template-columns: repeat(2, 1fr); }
+      .samples-grid { grid-template-columns: repeat(2, 1fr); }
+      .sample-card.featured { grid-column: span 2; }
+      .samples-overview { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .videos-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .hero { padding: 6rem 1.25rem 4rem; }
+      .section { padding: 4rem 1.25rem; }
+      .approach-section { padding: 4rem 1.25rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .exp-bullets { grid-template-columns: 1fr; }
+      .samples-grid { grid-template-columns: 1fr; }
+      .sample-card.featured { grid-column: span 1; }
+      .samples-highlights { grid-template-columns: 1fr; }
+      .stat-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ebrahim Arefi</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#experience">Experience</a></li>
+  </ul>
+  <a class="btn-primary" href="mailto:ebrahimarefi11@gmail.com">Contact Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AVP Communications Applicant · UNBSU</div>
+    <h1>Ebrahim<br/><span>Arefi</span></h1>
+    <p class="hero-sub">Digital Marketer · Content Creator · Web Developer · University of New Brunswick</p>
+    <p class="hero-desc">Computer Science student specializing in digital marketing, social media strategy, video production, brand management, and e-commerce, with real-world results across multiple platforms and client projects.</p>
+    <div class="hero-tags">
+      <span class="tag">TikTok Ads</span>
+      <span class="tag">Instagram Marketing</span>
+      <span class="tag">Facebook Campaigns</span>
+      <span class="tag">Video Production</span>
+      <span class="tag">Photography</span>
+      <span class="tag">Shopify</span>
+      <span class="tag">Brand Strategy</span>
+      <span class="tag">Analytics</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#work" class="btn-primary">View My Work ↓</a>
+      <a href="mailto:ebrahimarefi11@gmail.com" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div style="padding: 0 2.5rem;">
+  <div class="stat-bar reveal">
+    <div class="stat-item">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Platforms Managed (TikTok, Instagram, Facebook)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Shopify & WordPress Stores Built</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Brand-Consistent Campaigns Delivered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2020</div>
+      <div class="stat-label">UNB Computer Science Student Since</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT + CONTACT -->
+<section class="section" id="about">
+  <div class="section-header reveal">
+    <div class="section-label">Introduction</div>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="info-grid reveal">
+    <div class="contact-card">
+      <h3>Contact</h3>
+      <div class="contact-item"><div class="contact-icon">📍</div><span>Fredericton, NB</span></div>
+      <div class="contact-item"><div class="contact-icon">✉️</div><span style="word-break:break-all;">ebrahimarefi11@gmail.com</span></div>
+      <div class="contact-item"><div class="contact-icon">📞</div><span>(506) 850-5260</span></div>
+    </div>
+    <div class="about-card">
+      <h3>Background</h3>
+      <p>I am a Computer Science student at UNB with hands-on experience in digital marketing, social media management, video production, photography, and brand strategy. Through e-commerce ventures and freelance work, I have built and launched full online brands, from developing branding guidelines and photo catalogs to executing paid ad campaigns across TikTok, Instagram, and Facebook.</p>
+      <p>My technical background in web development (Shopify & WordPress) combined with my business-focused studies, a Minor in Business Administration, Diploma in Technology Management & Entrepreneurship, and Cybersecurity specialization, allows me to approach communications from both creative and strategic angles.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-header reveal">
+    <div class="section-label">Academics</div>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-item"><div class="edu-dot"></div><span>Bachelor of Computer Science, University of New Brunswick (2020–Present)</span></div>
+    <div class="edu-item"><div class="edu-dot"></div><span>Minor in Business Administration</span></div>
+    <div class="edu-item"><div class="edu-dot"></div><span>Diploma in Technology Management &amp; Entrepreneurship</span></div>
+    <div class="edu-item"><div class="edu-dot"></div><span>Specialization in Cybersecurity</span></div>
+  </div>
+  <div class="edu-note reveal">
+    💡 I also completed coursework toward a Business minor at Mount Allison University before transferring to UNB. Some credits did not transfer, so I am completing additional business courses at UNB to finalize the minor here.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-header reveal">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Relevant Skills</h2>
+  </div>
+  <div class="skills-grid reveal-group">
+
+    <div class="skill-card reveal">
+      <div class="skill-cat-icon">📣</div>
+      <div class="skill-cat">Digital Marketing</div>
+      <ul class="skill-list">
+        <li>Social media marketing (TikTok, Instagram, Facebook)</li>
+        <li>Paid advertising campaigns and audience targeting</li>
+        <li>Organic social media growth strategies</li>
+        <li>Content creation and engagement strategies</li>
+        <li>Analytics tracking and performance reporting</li>
+        <li>Newsletter creation and distribution</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-cat-icon">🎬</div>
+      <div class="skill-cat">Video &amp; Photography</div>
+      <ul class="skill-list">
+        <li>Short-form video production (TikTok, Reels)</li>
+        <li>Product and lifestyle photography</li>
+        <li>Photo catalog creation and management</li>
+        <li>Content planning and creative direction</li>
+        <li>Visual storytelling for social platforms</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-cat-icon">🌐</div>
+      <div class="skill-cat">Web Development</div>
+      <ul class="skill-list">
+        <li>Shopify website development</li>
+        <li>WordPress website development</li>
+        <li>E-commerce store setup and management</li>
+        <li>Website maintenance and optimization</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-cat-icon">🎨</div>
+      <div class="skill-cat">Design &amp; Branding</div>
+      <ul class="skill-list">
+        <li>Brand identity development &amp; enforcement</li>
+        <li>Branding guidelines creation</li>
+        <li>Promotional materials (business cards, flyers)</li>
+        <li>Graphic design for marketing campaigns</li>
+        <li>Consistent visual identity across channels</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-cat-icon">💻</div>
+      <div class="skill-cat">Technical Skills</div>
+      <ul class="skill-list">
+        <li>Java &amp; Python programming</li>
+        <li>Technical troubleshooting and problem solving</li>
+        <li>Website debugging and optimization</li>
+        <li>Campaign analytics and data interpretation</li>
+      </ul>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-cat-icon">🤝</div>
+      <div class="skill-cat">Professional Skills</div>
+      <ul class="skill-list">
+        <li>Leadership and team collaboration</li>
+        <li>Project management and organization</li>
+        <li>Client communication and support</li>
+        <li>Strong written and verbal communication</li>
+        <li>Quick learner with adaptable skill set</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WORK SAMPLES -->
+<section class="section" id="work">
+  <div class="section-header reveal">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Work Samples</h2>
+  </div>
+  <div class="samples-overview reveal">
+    <div class="samples-intro">
+      <div class="samples-kicker">Selected Work</div>
+      <p>Selected projects across Shopify builds, product messaging, and brand development. Each sample shows a different strength: storefront design, campaign thinking, copywriting, and content prepared for launch.</p>
+      <div class="samples-highlights">
+        <div class="sample-highlight">
+          <strong>5</strong>
+          <span>portfolio pieces selected for variety across strategy, copy, and storefront work</span>
+        </div>
+        <div class="sample-highlight">
+          <strong>3</strong>
+          <span>storefront builds focused on visual hierarchy and buyer flow</span>
+        </div>
+        <div class="sample-highlight">
+          <strong>2</strong>
+          <span>brand and copy projects showing messaging beyond page design</span>
+        </div>
+      </div>
+    </div>
+    <div class="samples-note">
+      <div class="samples-note-label">What This Shows</div>
+      <p><strong>Range with consistency.</strong> The strongest projects now lead the section, while every card explains the type of work and the value behind it more clearly.</p>
+    </div>
+  </div>
+  <div class="samples-grid reveal-group">
+
+    <a class="sample-card featured reveal" href="files/verlak-watches.pdf" target="_blank" rel="noopener noreferrer">
+      <div class="sample-media">
+        <div class="sample-type">Featured Project</div>
+        <img class="sample-img" src="images/verlak_thumb.png" alt="Verlak Watches Shopify store" />
+      </div>
+      <div class="sample-info">
+        <div class="sample-meta">
+          <span>Shopify Store Build</span>
+          <span>Luxury E-Commerce</span>
+        </div>
+        <div class="sample-title">Verlak Watches — Shopify Store</div>
+        <div class="sample-desc">Designed a premium storefront for a watch brand with a sharper visual hierarchy, polished merchandising sections, and a more credible luxury feel across the buyer journey.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Shopify</span>
+          <span class="sample-tag">E-Commerce</span>
+          <span class="sample-tag">Visual Merchandising</span>
+          <span class="sample-tag">UX</span>
+        </div>
+        <div class="sample-footer">
+          <div class="sample-impact">Focus: premium presentation, collection discovery, and stronger product-page trust.</div>
+          <div class="sample-link">Open case study</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="sample-card reveal" href="files/heated-beauty.pdf" target="_blank" rel="noopener noreferrer">
+      <div class="sample-media">
+        <div class="sample-type">Store Design</div>
+        <img class="sample-img" src="images/heated_thumb.png" alt="Heated Beauty Shopify store" />
+      </div>
+      <div class="sample-info">
+        <div class="sample-meta">
+          <span>Beauty Brand</span>
+          <span>Offer-Led Layout</span>
+        </div>
+        <div class="sample-title">Heated Beauty — Shopify Store</div>
+        <div class="sample-desc">Built a conversion-focused beauty storefront with campaign banners, promotional sections, and product pages structured around a BOGO offer.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Shopify</span>
+          <span class="sample-tag">Beauty Brand</span>
+          <span class="sample-tag">Promotions</span>
+        </div>
+        <div class="sample-footer">
+          <div class="sample-impact">Emphasis: campaign clarity and high-intent product browsing.</div>
+          <div class="sample-link">View project</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="sample-card reveal" href="files/pet-shop.pdf" target="_blank" rel="noopener noreferrer">
+      <div class="sample-media">
+        <div class="sample-type">Store Design</div>
+        <img class="sample-img" src="images/pet_thumb.png" alt="Pet Shop Shopify store" />
+      </div>
+      <div class="sample-info">
+        <div class="sample-meta">
+          <span>Pet Accessories</span>
+          <span>Mobile Ready</span>
+        </div>
+        <div class="sample-title">Pet Shop — Shopify Store</div>
+        <div class="sample-desc">Created an end-to-end pet accessories storefront with sale-led hero messaging, cleaner navigation, and trust-building copy written for mobile shoppers.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Shopify</span>
+          <span class="sample-tag">Dropshipping</span>
+          <span class="sample-tag">Mobile Design</span>
+        </div>
+        <div class="sample-footer">
+          <div class="sample-impact">Best for showing fast storefront setup and practical UX decisions.</div>
+          <div class="sample-link">View project</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="sample-card reveal" href="files/space-capsule.pdf" target="_blank" rel="noopener noreferrer">
+      <div class="sample-media">
+        <div class="sample-type">Copywriting</div>
+        <img class="sample-img" src="images/space_thumb.png" alt="Space Capsule product copy" />
+      </div>
+      <div class="sample-info">
+        <div class="sample-meta">
+          <span>Product Page Copy</span>
+          <span>E-Commerce Messaging</span>
+        </div>
+        <div class="sample-title">Space Capsule — Product Copywriting</div>
+        <div class="sample-desc">Wrote feature-to-benefit product copy for a pet carrier backpack, balancing emotional appeal with practical details that help buyers picture use cases quickly.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Copywriting</span>
+          <span class="sample-tag">Product Marketing</span>
+          <span class="sample-tag">E-Commerce</span>
+        </div>
+        <div class="sample-footer">
+          <div class="sample-impact">Useful proof of messaging, positioning, and conversion writing.</div>
+          <div class="sample-link">Read sample</div>
+        </div>
+      </div>
+    </a>
+
+    <div class="sample-card reveal" onclick="window.open('files/lovve-brand-strategy.pdf', '_blank', 'noopener,noreferrer')">
+      <div class="sample-media">
+        <div class="sample-type">Brand Strategy</div>
+        <img class="sample-img" src="images/brand_story_thumb.png" alt="Lovve Beauty brand story" />
+      </div>
+      <div class="sample-info">
+        <div class="sample-meta">
+          <span>Strategy + Assets</span>
+          <span>Beauty Brand</span>
+        </div>
+        <div class="sample-title">Lövve Beauty — Brand Strategy + Launch Assets</div>
+        <div class="sample-desc">Built a cohesive brand direction for a beauty concept, combining positioning, founder-story messaging, identity language, and launch-ready visual assets into one consistent package.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Brand Strategy</span>
+          <span class="sample-tag">Launch Assets</span>
+          <span class="sample-tag">Copywriting</span>
+          <span class="sample-tag">Brand Identity</span>
+        </div>
+        <div class="sample-footer">
+          <div class="sample-impact">Shows that you can shape both the message and the materials behind a launch.</div>
+          <div class="sample-links">
+            <span class="sample-link">Open strategy</span>
+            <a class="sample-link" href="images/my-story.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">View assets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VIDEO CONTENT -->
+<section class="section" id="videos">
+  <div class="section-header reveal">
+    <div class="section-label">Content Creation</div>
+    <h2 class="section-title">Video Production</h2>
+  </div>
+  <div class="videos-grid reveal-group">
+
+    <div class="video-card reveal">
+      <div class="video-wrap">
+        <video controls preload="none" poster="images/thumb_bigredboot.jpg">
+          <source src="videos/big-red-boot.mp4" type="video/mp4" />
+        </video>
+        <div class="play-overlay">
+          <div class="play-btn">▶</div>
+        </div>
+      </div>
+      <div class="video-info">
+        <div class="video-platform"><span class="platform-dot"></span>TikTok / Short-Form</div>
+        <div class="video-title">MSCHF's Big Red Boot</div>
+        <div class="video-desc">Viral trending content captured on location in New York City, leveraging a trending cultural moment to drive organic engagement and reach.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Short-Form Video</span>
+          <span class="sample-tag">Trend Content</span>
+          <span class="sample-tag">Organic Growth</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-wrap">
+        <video controls preload="none" poster="images/thumb_ferrari.jpg">
+          <source src="videos/can-ferrari-survive-in-the-electric-era.mp4" type="video/mp4" />
+        </video>
+        <div class="play-overlay">
+          <div class="play-btn">▶</div>
+        </div>
+      </div>
+      <div class="video-info">
+        <div class="video-platform"><span class="platform-dot"></span>YouTube / TikTok</div>
+        <div class="video-title">Can Ferrari Survive in the Electric Era?</div>
+        <div class="video-desc">Created for my YouTube channel and later adapted into a short for TikTok, exploring Enzo Ferrari, Ferrari's legacy, and the story behind the brand through voiceover, edited visuals, and text-driven storytelling.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Video Editing</span>
+          <span class="sample-tag">Storytelling</span>
+          <span class="sample-tag">Voiceover</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-wrap">
+        <video controls preload="none" poster="images/thumb_lv.jpg">
+          <source src="videos/lv_1.mp4" type="video/mp4" />
+        </video>
+        <div class="play-overlay">
+          <div class="play-btn">▶</div>
+        </div>
+      </div>
+      <div class="video-info">
+        <div class="video-platform"><span class="platform-dot"></span>YouTube / Long-Form</div>
+        <div class="video-title">The Story of Louis Vuitton</div>
+        <div class="video-desc">Created for my YouTube channel, exploring the history of Louis Vuitton from 1854 through research, scripted narration, archival visuals, and polished long-form editing.</div>
+        <div class="sample-tags">
+          <span class="sample-tag">Documentary</span>
+          <span class="sample-tag">Brand Storytelling</span>
+          <span class="sample-tag">Long-Form</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-header reveal">
+    <div class="section-label">Work History</div>
+    <h2 class="section-title">Digital Marketing &amp; Communications Experience</h2>
+  </div>
+  <div class="exp-list reveal-group">
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-title">E-Commerce &amp; Dropshipping Projects</div>
+        <div class="exp-badges">
+          <span class="exp-badge">TikTok · Instagram · Facebook</span>
+          <span class="exp-badge">Paid Ads</span>
+          <span class="exp-badge">Branding</span>
+        </div>
+      </div>
+      <p class="exp-text">Built and managed full-scale e-commerce brands from the ground up, including store development, branding guidelines, photo catalog creation, supplier outreach, and multi-platform advertising. Produced organic short-form video content for TikTok to drive awareness while simultaneously running paid ad campaigns. Tracked performance analytics across platforms to optimize spend and improve ROAS.</p>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Multi-platform paid ad campaigns (TikTok, Instagram, Facebook)</div>
+        <div class="exp-bullet">Brand identity & branding guidelines enforcement</div>
+        <div class="exp-bullet">Photo catalog creation and product photography</div>
+        <div class="exp-bullet">Short-form video production for organic growth</div>
+        <div class="exp-bullet">Audience targeting and campaign setup</div>
+        <div class="exp-bullet">Analytics tracking and performance optimization</div>
+        <div class="exp-bullet">Content testing and product validation</div>
+        <div class="exp-bullet">Customer engagement and digital branding</div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-title">Freelance Website Development</div>
+        <div class="exp-badges">
+          <span class="exp-badge">Shopify</span>
+          <span class="exp-badge">Fiverr</span>
+          <span class="exp-badge">Client Work</span>
+        </div>
+      </div>
+      <p class="exp-text">Created and delivered Shopify websites for clients through Fiverr, managing the full project lifecycle from design brief to launch. Helped small businesses establish a professional online presence, configure product pages, integrate payment systems, and resolve technical issues, all while maintaining clear client communication throughout.</p>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Designed and launched Shopify storefronts</div>
+        <div class="exp-bullet">Configured online store features and pages</div>
+        <div class="exp-bullet">Provided ongoing client support and troubleshooting</div>
+        <div class="exp-bullet">Delivered practical digital solutions for small businesses</div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-title">WordPress Website Experience</div>
+        <div class="exp-badges">
+          <span class="exp-badge">WordPress</span>
+          <span class="exp-badge">Content Management</span>
+        </div>
+      </div>
+      <p class="exp-text">Built and managed websites using WordPress, including theme setup, content management, and ongoing maintenance, ensuring a consistent and up-to-date online presence for business and project use.</p>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Theme and page setup</div>
+        <div class="exp-bullet">Content updates and management</div>
+        <div class="exp-bullet">Maintaining and optimizing online presence</div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-title">Easy Tax Return – Promotional Materials</div>
+        <div class="exp-badges">
+          <span class="exp-badge">Print Design</span>
+          <span class="exp-badge">Branding</span>
+          <span class="exp-badge">Moncton, NB</span>
+        </div>
+      </div>
+      <p class="exp-text">Contributed to the creation of business cards and promotional materials to support branding and visibility for Easy Tax Return in Moncton. Ensured all materials adhered to brand standards and effectively communicated the business's value proposition.</p>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Business card design support</div>
+        <div class="exp-bullet">Brand-consistent promotional materials</div>
+        <div class="exp-bullet">Professional communication materials</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPROACH -->
+<div class="approach-section" id="approach">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-header reveal">
+      <div class="section-label">UNBSU Strategy</div>
+      <h2 class="section-title">How I Would Approach Communications at UNBSU</h2>
+    </div>
+    <div class="approach-grid reveal-group">
+      <div class="approach-item reveal"><div class="approach-num">01</div><span>Strengthen UNBSU's presence on Instagram, TikTok, and Facebook with consistent, on-brand content</span></div>
+      <div class="approach-item reveal"><div class="approach-num">02</div><span>Create short-form video content and photography to promote events, services, and initiatives</span></div>
+      <div class="approach-item reveal"><div class="approach-num">03</div><span>Develop coordinated campaigns for major student events, including giveaways and photoshoots</span></div>
+      <div class="approach-item reveal"><div class="approach-num">04</div><span>Track engagement metrics and promotional analytics to continuously improve outreach</span></div>
+      <div class="approach-item reveal"><div class="approach-num">05</div><span>Enforce branding guidelines across all UNBSU materials and channels</span></div>
+      <div class="approach-item reveal"><div class="approach-num">06</div><span>Manage newsletters and maintain the UNBSU photo catalog and media library</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Ebrahim Arefi</strong> · Fredericton, NB · <a href="mailto:ebrahimarefi11@gmail.com">ebrahimarefi11@gmail.com</a> · <a href="tel:5068505260">(506) 850-5260</a></p>
+</footer>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const variantRules = [
+    { selector: '.section-header.reveal', variants: ['left'] },
+    { selector: '.info-grid.reveal, .info-grid .reveal', variants: ['left', 'right'] },
+    { selector: '.edu-grid.reveal, .edu-grid .reveal, .edu-note.reveal', variants: ['lift', 'left', 'right'] },
+    { selector: '.skill-card.reveal', variants: ['lift', 'zoom', 'lift'] },
+    { selector: '.samples-overview.reveal', variants: ['zoom'] },
+    { selector: '.sample-card.reveal', variants: ['lift', 'zoom', 'lift'] },
+    { selector: '.video-card.reveal', variants: ['left', 'zoom', 'right'] },
+    { selector: '.exp-card.reveal', variants: ['left', 'right'] },
+    { selector: '.approach-item.reveal', variants: ['lift', 'left', 'right'] }
+  ];
+
+  variantRules.forEach(({ selector, variants }) => {
+    document.querySelectorAll(selector).forEach((el, index) => {
+      el.dataset.reveal = variants[index % variants.length];
+      el.style.setProperty('--reveal-delay', `${index * 28}ms`);
+    });
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+
+  if (prefersReducedMotion) {
+    reveals.forEach((el) => el.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.04,
+      rootMargin: '0px 0px -2% 0px'
+    });
+
+    reveals.forEach((el) => observer.observe(el));
+
+    const parallaxNodes = document.querySelectorAll('.orb, .sample-card, .video-card, .exp-card, .skill-card, .approach-item');
+    let ticking = false;
+
+    const updateParallax = () => {
+      const viewportHeight = window.innerHeight || 1;
+      parallaxNodes.forEach((node) => {
+        const rect = node.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+        const progress = (midpoint - viewportHeight / 2) / viewportHeight;
+        const drift = Math.max(-16, Math.min(16, progress * -14));
+        node.style.setProperty('--parallax-y', `${drift.toFixed(2)}px`);
+      });
+      ticking = false;
+    };
+
+    const requestParallax = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateParallax);
+      }
+    };
+
+    updateParallax();
+    window.addEventListener('scroll', requestParallax, { passive: true });
+    window.addEventListener('resize', requestParallax);
+  }
+
+  // ── VIDEO PLAY/PAUSE ──
+  document.querySelectorAll('.video-wrap').forEach((wrap) => {
+    const video = wrap.querySelector('video');
+    const overlay = wrap.querySelector('.play-overlay');
+    if (!video || !overlay) return;
+
+    // Remove native controls so only the overlay drives play/pause
+    video.removeAttribute('controls');
+
+    const playVideo = () => {
+      // Pause all other videos first
+      document.querySelectorAll('.video-wrap video').forEach((v) => {
+        if (v !== video && !v.paused) {
+          v.pause();
+          const otherOverlay = v.closest('.video-wrap').querySelector('.play-overlay');
+          if (otherOverlay) otherOverlay.classList.remove('hidden');
+        }
+      });
+      video.play();
+      overlay.classList.add('hidden');
+    };
+
+    const pauseVideo = () => {
+      video.pause();
+      overlay.classList.remove('hidden');
+    };
+
+    // Clicking the overlay plays the video
+    overlay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playVideo();
+    });
+
+    // Clicking the video itself toggles play/pause
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        playVideo();
+      } else {
+        pauseVideo();
+      }
+    });
+
+    // Sync overlay when video ends
+    video.addEventListener('ended', () => {
+      overlay.classList.remove('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>
